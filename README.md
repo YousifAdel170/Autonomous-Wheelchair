@@ -80,6 +80,18 @@ This project was part of my **graduation project** as a team member. We thank ev
 
 ---
 
+## 🔗 Related Projects
+
+- [🦽 Autonomous Mobile Robot (Simulation)](https://github.com/YousifAdel170/Autonomous-Mobile-Robot)
+
+---
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+## This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+---
+
+## 🙋‍♂️ Author
+
+**Yousif Adel** – [LinkedIn](https://www.linkedin.com/in/yousif-adel-a601641b1/)
