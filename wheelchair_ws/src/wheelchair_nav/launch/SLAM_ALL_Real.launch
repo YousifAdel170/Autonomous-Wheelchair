@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+
+<!-- Camera -->
+<include file="$(find freenect_launch)/launch/freenect.launch"/>
+
+<!-- Rviz: Do not forget to include the config file of rviz of mapping in real -->
+<include file="$(find mywheelchair_description)/launch/mybot_rviz.launch"/>
+
+<!-- Depth image to laser scan -->
+<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" > 
+    <param name="output_frame_id" value="camera_link" />
+    <remap from="image" to="/camera/depth/image_raw"/>
+</node>
+
+<!-- Gmapping Package -->
+<include file="$(find wheelchair_nav)/launch/gmapping_real.launch"/>
+
+<!-- Launch the differential drive -->
+<include file="$(find robot_controller)/launch/diff_hw_interface_imu.launch"/>
+
+<!-- Turtlebot to move the robot -->
+<include file="$(find wheelchair_nav)/launch/mybot_teleop.launch"/>
+
+
+</launch>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+  <arg name="scan_topic"      default="scan"/>
+
+<!-- Include Rviz (make sure that rviz config is lastconfig.rviz) -->
+<include file="$(find mywheelchair_description)/launch/mybot_rviz.launch"/>
+
+<!-- Launch the differential drive -->
+<include file="$(find robot_controller)/launch/diff_hw_interface_imu.launch"/>
+
+<!-- Launch Camera -->
+<include file="$(find freenect_launch)/launch/freenect.launch"/>
+
+
+<!-- depthLaserscan: Convert Image to Laser Scan if we use kinect camera -->
+<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" > 
+<param name="output_frame_id" value="camera_link" />
+<remap from="image" to="/camera/depth/image_raw"/>
+</node>
+
+  <!-- Map Server -->
+  <!-- Load the map -->
+<arg name="map" default="$(find mybot_nav)/map/last.yaml"/>
+<node name="map_server" pkg="map_server" type="map_server" args="$(arg map)"/>
+
+  <!-- Make the robot only moves forward because we use kinect camera -->
+<arg name="move_forward_only" default="true "/>
+
+  <!-- AMCL  -->
+  <include file="$(find wheelchair_nav)/launch/amcl.launch"/>
+ 
+ <!-- Move base -->
+<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  <param name="recovery_behavior_enabled"	value="true"/>
+  <param name= "clearing_rotation_allowed"	value="true" />
+  <param name= "rotate_recovery"	value="true" />
+  <param name= "move_slow_and_clear"	value="false" /> 
+
+  <rosparam file="$(find wheelchair_nav)/config_real/costmap_common_params.yaml" command="load" ns="global_costmap" />
+  <rosparam file="$(find wheelchair_nav)/config_real/costmap_common_params.yaml" command="load" ns="local_costmap" />
+  <rosparam file="$(find wheelchair_nav)/config_real/local_costmap_params.yaml" command="load" />
+  <rosparam file="$(find wheelchair_nav)/config_real/global_costmap_params.yaml" command="load" />
+  <rosparam file="$(find wheelchair_nav)/config_real/base_local_planner_params.yaml" command="load" />
+  <rosparam file="$(find wheelchair_nav)/config_real/move_base_params.yaml" command="load" />
+</node>       
+</launch>

@@ -1,0 +1,52 @@
+# === ROS / Robotics ===
+build/
+devel/
+install/
+logs/
+*.pyc
+*.pyo
+*.swp
+*.bak
+*.orig
+*.log
+*.DS_Store
+*.vscode/
+catkin_ws/.catkin_tools/
+catkin_ws/log/
+catkin_ws/build_isolated/
+catkin_ws/devel_isolated/
+catkin_ws/install_isolated/
+.ccls-cache/
+.launches/
+
+# === Web (React / JavaScript) ===
+node_modules/
+build/
+dist/
+.env
+.env.*.local
+.cache/
+*.log
+
+# === OS and Editor junk ===
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.DS_Store
+Thumbs.db
+ehthumbs.db
+.idea/
+.vscode/
+*.code-workspace
+
+# === Misc ===
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnp.*
+.pnp
+coverage/
+public/static/

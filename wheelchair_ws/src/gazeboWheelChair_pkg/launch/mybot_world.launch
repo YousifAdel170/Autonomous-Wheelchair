@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  
+  <!-- Gazebo ROS -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!-- File that i have made in world folder -->
+    <!-- Gazebo package that i have made -->
+    <!-- <arg name="world_name" value="$(find gazeboWheelChair_pkg)/world/world.world"/> -->
+    <arg name="world_name" value="$(find gazeboWheelChair_pkg)/world/careCenter.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+  
+  <!-- Load the xacro file in robot_description -->
+ <!-- <myrobot.urdf.xacro" /> -->
+ <param name="robot_description" command="$(find xacro)/xacro --inorder $(find mywheelchair_description)/urdf/myrobot.urdf.xacro" />
+  
+  <!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(find mywheelchair_description)/urdf/myrobot.urdf.xacro'"/> -->
+
+  <!-- take urdf and give u the state of every joint whether fixed or continuous -->
+  <!--  joint_state_publisher & robot_state_publisher got commented cause it repeated in Rviz & got combined in SLAM_ALL.launch file -->
+<!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
+<param name="use_gul" value="false"/>
+</node> -->
+
+
+<!-- Take urdf and give u tf[transformation between every 2 links] -->
+<!-- Combine joint values -->
+<!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> -->
+ 
+ <!-- Use the robot_descritpion in package[gazebo_ros] in node[spawn_model]-->
+  <!-- node[spawn_mode] takes our URDF robot and gazebo file that have plugins
+       Then put it in the environment -->
+  
+  <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+   args="-urdf -param robot_description -model mybot" />
+
+</launch>

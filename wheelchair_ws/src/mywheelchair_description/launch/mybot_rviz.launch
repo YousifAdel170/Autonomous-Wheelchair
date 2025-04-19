@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+ <param name="robot_description" command="$(find xacro)/xacro --inorder $(find mywheelchair_description)/urdf/myrobot.urdf.xacro" />
+
+<!-- For Mapping in Real -->
+  <!-- <arg name="rviz_config_file" default="$(find wheelchair_nav)/config1/slam_our_real.rviz"/> -->
+
+<!-- For Mapping in Simulation -->
+  <!-- <arg name="rviz_config_file" default="$(find wheelchair_nav)/config1/mapping_simulation.rviz"/> -->
+
+<!-- For Navigation -->
+  <arg name="rviz_config_file" default="$(find wheelchair_nav)/config1/last_config.rviz"/>
+
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+
+  <!-- Combine joint values -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+  <!-- Show in Rviz   -->
+    <node pkg="rviz" type="rviz" name="rviz"  args="-d $(arg rviz_config_file)" />
+     <!-- If u want to open Rviz without the configs (disable the previous node then activate the rviz node & don't forget to comment the config file that loaded above) -->
+        <!-- <node pkg="rviz" type="rviz" name="rviz"/> -->
+
+
+</launch>
+
+

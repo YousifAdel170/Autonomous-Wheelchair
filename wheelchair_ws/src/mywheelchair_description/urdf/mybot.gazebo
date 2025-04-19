@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<!--  A gazebo plugin file that connect the URDF-written robot with the following gazebo plugins
+1:"differential_drive_controller"  for differential drive simulation  
+2:"camera_controller " for kinect simulation
+/-->
+
+<robot>
+
+<!--  ++++++++++++++++++ Diff drive plugin++++++++++++++++++          /-->
+
+<gazebo>
+
+<!-- Skid steer for 4 motors Plugin -->
+
+<plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace></robotNamespace>
+    <leftFrontJoint>wheel4_joint</leftFrontJoint>
+    <rightFrontJoint>wheel3_joint</rightFrontJoint>
+    <leftRearJoint>wheel2_joint</leftRearJoint>
+    <rightRearJoint>wheel1_joint</rightRearJoint>
+    <wheelSeparation>0.5</wheelSeparation>
+    <wheelDiameter>0.3</wheelDiameter>
+    <robotBaseFrame>chassis</robotBaseFrame>
+    <torque>200</torque>
+    <MaxForce>5.0</MaxForce>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <broadcastTF>true</broadcastTF>
+    <covariance_x>0.001</covariance_x> 
+    <covariance_y>0.001</covariance_y> 
+    <covariance_yaw>0.01</covariance_yaw> 
+  </plugin>
+
+
+
+<!-- Differential Drive for 2 motors Plugin -->
+<!-- 
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <updateRate>50</updateRate>
+      <robotNamespace>/</robotNamespace>
+      <leftJoint>wheel2_joint</leftJoint>
+      <rightJoint>wheel1_joint</rightJoint>
+      <wheelSeparation>0.5</wheelSeparation>
+      <wheelDiameter>0.3</wheelDiameter>
+      <wheelAcceleration>0.5</wheelAcceleration>
+      <wheelTorque>20</wheelTorque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>chassis</robotBaseFrame>
+      <odometrySource>world</odometrySource>
+      <publishWheelTF>false</publishWheelTF>
+      <publishOdomTF>true</publishOdomTF>
+      <publishOdom>true</publishOdom>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+    </plugin> -->
+
+
+
+ </gazebo>
+
+
+<gazebo reference="chassis">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+
+<!--  +++++++++++++base_link Orange color++++++++++++++++          /-->
+  <gazebo reference="base_uplayer_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+<!--  +++++++++++++camera_stand_link Gray color++++++++++++++++          /-->
+  <gazebo reference="camera_stand_link">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+
+  <!--  +++++++++++++handle_chair Black color++++++++++++++++          /-->
+  <gazebo reference="handle_chair">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+<!--  +++++++++++++back_link Black color++++++++++++++++          /-->
+  <gazebo reference="back_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+<!--  +++++++++++++column_back_seat_left_link Black color++++++++++++++++          /-->
+  <gazebo reference="column_back_seat_left_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!--  +++++++++++++column_back_seat_right_link Black color++++++++++++++++          /-->
+  <gazebo reference="column_back_seat_right_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+  <!--  +++++++++++++seat_link Black color++++++++++++++++          /-->
+  <gazebo reference="seat_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+  <!--  +++++++++++++parallel_stand_left_link Brown color++++++++++++++++          /-->
+  <gazebo reference="parallel_stand_left_link">
+    <material>Gazebo/Brown</material>
+  </gazebo>
+
+  <!--  +++++++++++++parallel_stand_right_link Brown color++++++++++++++++          /-->
+  <gazebo reference="parallel_stand_right_link">
+    <material>Gazebo/Brown</material>
+  </gazebo>
+
+
+  <!--  +++++++++++++carriage_stand_left_link Black color++++++++++++++++          /-->
+  <gazebo reference="carriage_stand_left_link">
+    <material>Gazebo/Black</material>
+  </gazebo>  
+  
+  <!--  +++++++++++++carriage_stand_right_link Black color++++++++++++++++          /-->
+  <gazebo reference="carriage_stand_right_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+  <!--  +++++++++++++ conect_2_left_columns_linkRed color++++++++++++++++          /-->
+  <gazebo reference="conect_2_left_columns_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <!--  +++++++++++++ conect_2_right_columns_link Red color++++++++++++++++          /-->
+  <gazebo reference="conect_2_right_columns_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+ <!--  +++++++++++++ column_back_left_link Red color++++++++++++++++          /-->
+  <gazebo reference="column_back_left_link">
+    <material>Gazebo/yellow</material>
+  </gazebo>
+  
+ <!--  +++++++++++++ column_back_right_link Red color++++++++++++++++          /-->
+  <gazebo reference="column_back_right_link">
+    <material>Gazebo/yellow</material>
+  </gazebo>
+   <!--  +++++++++++++ column_front_right_link Red color++++++++++++++++          /-->
+  <gazebo reference="column_front_right_link">
+    <material>Gazebo/yellow</material>
+  </gazebo>
+   <!--  +++++++++++++ column_front_left_link Red color++++++++++++++++          /-->
+  <gazebo reference="column_front_left_link">
+    <material>Gazebo/yellow</material>
+  </gazebo>
+
+
+
+<!--  ++++++++++++++++Back wheel Blue Color+++++++++++++++++++          /-->
+  <gazebo reference="wheel_back_left_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+    <gazebo reference="wheel_back_right_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+<!--  +++++++++++++++Right wheel Blue Color+++++++++++++++++          /-->
+  <gazebo reference="wheel_front_left_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_front_right_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="imu_sensor_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+
+
+
+<!-- LiDAR -->
+
+  <!-- <gazebo reference="base_laser">
+    <material>Gazebo/FlatBlack</material>
+    <sensor type="ray" name="head_ydlidar_sensor">
+      <pose>0 0 0 0 0 1</pose>
+      <visualize>false</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159265</min_angle>
+            <max_angle>3.14159265</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.7</min>
+          <max>9</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <plugin name="gazebo_ros_head_ydlidar_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>base_laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo> -->
+
+
+
+<!--  ++++++++++++++++++Kinect Plugin+++++++++++++++++++          /-->
+<gazebo reference="camera_link">
+   <sensor type="depth" name="camera">
+
+       <always_on>1</always_on>
+       <visualize>true</visualize> 
+            
+       <camera>
+            <horizontal_fov>1.047</horizontal_fov>  
+            <image>
+                <width>640</width>
+                <height>480</height>
+                <format>R8G8B8</format>
+            </image>
+
+            <clip>
+                <near>0.1</near>
+                <far>100</far>
+            </clip>
+
+       </camera>
+
+       <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+             <alwaysOn>true</alwaysOn>
+             <updateRate>10.0</updateRate>
+             <cameraName>camera</cameraName>
+             <frameName>kinect_optical</frameName> 
+             <!-- <frameName>camera_link</frameName>  -->
+             <imageTopicName>rgb/image_raw</imageTopicName>
+             <depthImageTopicName>depth/image_raw</depthImageTopicName>
+             <pointCloudTopicName>depth/points</pointCloudTopicName>
+             <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>              
+             <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>            
+             <pointCloudCutoff>0.4</pointCloudCutoff>                
+             <hackBaseline>0.07</hackBaseline>
+             <distortionK1>0.0</distortionK1>
+             <distortionK2>0.0</distortionK2>
+             <distortionK3>0.0</distortionK3>
+             <distortionT1>0.0</distortionT1>
+             <distortionT2>0.0</distortionT2>
+             <CxPrime>0.0</CxPrime>
+             <Cx>0.0</Cx>
+             <Cy>0.0</Cy>
+             <focalLength>0.0</focalLength>
+       </plugin>
+
+    </sensor>
+  </gazebo >
+
+
+
+
+<!-- IMU Plugin -->
+  <gazebo reference="imu_sensor_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>imu_data</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu_data</topicName>
+        <bodyName>imu_sensor_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_sensor_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+
+</robot>

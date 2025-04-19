@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+    <!--- Launch gazebo World -->
+  <include file="$(find gazeboWheelChair_pkg)/launch/mybot_world.launch"/>
+
+  <!-- Depth image to laserscan: Convert Image to Laser Scan if we use kinect camera -->
+  <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" > 
+    <param name="output_frame_id" value="camera_link" />
+    <remap from="image" to="/camera/depth/image_raw"/>
+  </node>
+
+  <!-- Include Rviz (make sure that rviz config is lastconfig.rviz) -->
+  <include file="$(find mywheelchair_description)/launch/mybot_rviz.launch"/>
+
+
+  <!-- Load any map u want -->
+  <arg name="map" default="$ (find wheelchair_nav)/map/careCenter.yaml"/>
+  <!-- Map Server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map)"/>
+    
+
+  <!-- Controller -->
+  <node name="controller_spawner" pkg="controller_manager" 
+  type="spawner" respawn="false" output="screen" 
+  ns="/mywheelchair_description" 
+  args="left_wheel_controller right_wheel_controller joint_state_controller"/>
+  <rosparam file="$(find wheelchair_nav)/config1/controllers.yaml" command="load"/>
+
+
+    <!-- Make the robot only moves forward because we use kinect camera -->
+  <arg name="move_forward_only" default="true "/>
+
+    <!-- AMCL  -->
+  <include file="$(find wheelchair_nav)/launch/amcl.launch"/>
+  
+ <!-- MoveBase -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="recovery_behavior_enabled"	value="true"/>
+    <param name= "clearing_rotation_allowed"	value="true" />
+    <param name= "rotate_recovery"	value="true" />
+    <param name= "move_slow_and_clear"	value="false" /> 
+
+    <rosparam file="$(find wheelchair_nav)/config1/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find wheelchair_nav)/config1/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find wheelchair_nav)/config1/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find wheelchair_nav)/config1/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find wheelchair_nav)/config1/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find wheelchair_nav)/config1/move_base_params.yaml" command="load" />
+  </node>       
+</launch>

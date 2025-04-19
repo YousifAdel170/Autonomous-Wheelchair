@@ -1,0 +1,61 @@
+# DWAPlannerROS:
+#   max_trans_vel: 0.5  # Increase this value to increase maximum translational velocity
+#   min_trans_vel: 0.1  # Increase this value to increase minimum translational velocity
+#   max_vel_x: 0.5      # Increase this value to increase maximum velocity along x-axis
+#   acc_lim_x: 1.0      # Increase this value to increase maximum acceleration along x-axis
+#   acc_lim_theta: 1.0  # Increase this value to increase maximum angul
+
+
+DWAPlannerROS:
+  max_trans_vel: 0.5  # Increase this value to increase maximum translational velocity
+  min_trans_vel: 0.1  # Increase this value to increase minimum translational velocity
+ 
+  max_vel_x: 0.5      # Increase this value to increase maximum velocity along x-axis
+  min_vel_x: -0.025
+
+  max_vel_y: 0 
+  min_vel_y: 0
+
+  max_rot_vel: 0.3
+  min_rot_vel: -0.3
+
+
+
+  acc_lim_theta: 5    # Increase this value to increase maximum angul
+  acc_lim_trans: 1.25
+
+  prune_plan: false
+
+  xy_goal_tolerance: 0.2  # Increase if the robot struggles to reach the goal due to obstacles
+  yaw_goal_tolerance: 0.2  # Adjust based on the desired orientation accuracy
+
+  trans_stopped_vel: 0.1
+
+  sim_time: 3.0
+  # sim_time: 6.0
+  sim_granularity: 0.1
+
+  path_distance_bias: 34.0
+  goal_distance_bias: 24.0
+
+  occdist_scale: 0.05
+  twirling_scale: 0
+  stop_time_buffer: 0.5
+
+  oscillation_rest_dist: 0.05
+  oscillation_rest_angle: 0.2
+
+  forward_point_distance: 0.3
+  
+  scaling_speed: 0.25
+  max_scaling_factor: 0.2
+
+  vx_samples: 20
+  vy_samples: 0
+  vth_samples: 40
+
+  weight_obstacle: 50.0
+  pscillation_cost: 0.01  # Penalty for oscillating behavior
+  weight_inflation: 1.0   # Weight of the inflation cost function
+
+  
