@@ -58,8 +58,8 @@ The project has been tested in simulation using **Gazebo**. This allows for safe
 
 ### **Live Demo**
 
-For a live demo of the **Self-Driving Wheelchair** system:
-https://www.linkedin.com/posts/yousif-adel-a601641b1_apexdriveinnovators-ros-selfdrivingwheelchair-activity-7219724350126514176-LP5P?utm_source=share&utm_medium=member_desktop&rcm=ACoAADFSougBbplLvCFvoq2oVcM3uoEe_eK2zig
+For a live demo of the **Self-Driving Wheelchair** system:  
+[Watch on LinkedIn](https://www.linkedin.com/posts/yousif-adel-a601641b1_apexdriveinnovators-ros-selfdrivingwheelchair-activity-7219724350126514176-LP5P?utm_source=share&utm_medium=member_desktop&rcm=ACoAADFSougBbplLvCFvoq2oVcM3uoEe_eK2zig)
 
 ## Contributing
 
@@ -82,4 +82,4 @@ This project was part of my **graduation project** as a team member. We thank ev
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE.txt) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
