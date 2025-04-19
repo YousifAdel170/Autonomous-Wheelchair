@@ -59,8 +59,7 @@ The project has been tested in simulation using **Gazebo**. This allows for safe
 ### **Live Demo**
 
 For a live demo of the **Self-Driving Wheelchair** system:
-
-[Live Demo On Linkedin Post](#https://www.linkedin.com/posts/yousif-adel-a601641b1_apexdriveinnovators-ros-selfdrivingwheelchair-activity-7219724350126514176-LP5P?utm_source=share&utm_medium=member_desktop&rcm=ACoAADFSougBbplLvCFvoq2oVcM3uoEe_eK2zig)
+https://www.linkedin.com/posts/yousif-adel-a601641b1_apexdriveinnovators-ros-selfdrivingwheelchair-activity-7219724350126514176-LP5P?utm_source=share&utm_medium=member_desktop&rcm=ACoAADFSougBbplLvCFvoq2oVcM3uoEe_eK2zig
 
 ## Contributing
 
