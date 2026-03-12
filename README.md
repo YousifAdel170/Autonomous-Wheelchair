@@ -1,97 +1,191 @@
 # 🦽 Self-Driving Wheelchair (Graduation Project)
 
-This project is my **graduation project** as part of a **team of five members**. It focuses on the development of an autonomous self-driving wheelchair, which uses **ROS (Robot Operating System)**, **SLAM (Simultaneous Localization and Mapping)**, and various sensors (Kinect and LIDAR) to achieve autonomous navigation and obstacle avoidance. The project has been tested in both **simulation** (using Gazebo) and **real-world** environments.
+This project is my **graduation project** developed as part of a **team of five members**.  
+It focuses on building an **autonomous self-driving wheelchair** using **ROS (Robot Operating System)**, **SLAM**, and multiple sensors (**Kinect & LIDAR**) to enable **autonomous navigation and obstacle avoidance**.
+
+The system was successfully tested in both **simulation (Gazebo)** and **real-world environments**.
 
 The project is proudly sponsored by the **Information Technology Industry Development Agency (ITIDA)**.
 
-Our project was part of **three competitions**:
+---
+
+# 🏆 Achievements
+
+Our project participated in **three national competitions**:
 
 - **Made In Egypt (MIE)**
 - **Egypt Industry 4.0 Challenge**
 - **IEEE IC-SIT 2024**
 
-We reached the **finals** in the **IEEE IC-SIT 2024** competition. The project received an **A\* Excellent** evaluation for its outstanding implementation and performance.
+We successfully reached the **finals of IEEE IC-SIT 2024**, and the project received an **A\* (Excellent)** evaluation for its outstanding implementation and performance.
 
 ---
 
-## Project Structure
+# 🏗️ Project Architecture
 
-The project is divided into the following main components:
+The project consists of three main components.
 
-### 1. **Robotics (Robot Control & Navigation)**
+## 1️⃣ Robotics System (Control & Navigation)
 
-This section involves the development and deployment of the robot's control system, including the following key components:
+Responsible for the **core autonomous functionality of the wheelchair**.
 
-- **ROS (Robot Operating System)** for managing communication between various sensors and actuators.
-- **SLAM** for localization and mapping, allowing the wheelchair to navigate autonomously.
-- **Sensor Integration**: LIDAR and Kinect sensors are used for obstacle detection and mapping.
-- **Navigation Algorithms**: The robot uses algorithms like **A\* (global planner)** and **DWA (local planner)** for path planning and obstacle avoidance.
-- **Robot State**: The robot continuously updates its position (x, y, orientation) and velocity data for real-time tracking.
+Main components:
 
-### 2. **Web App (User Interface for Control)**
-
-The web app serves as the interface for controlling and monitoring the robot remotely:
-
-- **Connection Component**: Displays if the robot is connected or disconnected using the ROSSerial WebSocket.
-- **Teleoperation Component**: Provides joystick controls for moving the robot.
-- **RobotState Component**: Displays the real-time status of the robot, including location, velocity, and orientation.
-- **Map Component**: Displays the environment map generated from the robot's sensors (Kinect/LIDAR) and allows users to specify navigation goals.
-- **Footer**: Contains information like copyright and team details.
-
-### 3. **Simulations (Gazebo)**
-
-The project has been tested in simulation using **Gazebo**. This allows for safe and scalable testing of the robot's navigation and obstacle avoidance capabilities before deployment in the real world.
+- **ROS (Robot Operating System)** for communication between sensors and actuators
+- **SLAM** for localization and mapping
+- **Sensor Integration**
+  - **LIDAR**
+  - **Kinect**
+- **Navigation Algorithms**
+  - **A\*** – Global path planning
+  - **DWA (Dynamic Window Approach)** – Local obstacle avoidance
+- **Robot State Monitoring**
+  - Position (x, y)
+  - Orientation
+  - Velocity
 
 ---
 
-## Setup & Installation
+## 2️⃣ Web Application (Robot Control Interface)
 
-- **ROS** (Robot Operating System) Noetic
-- **Gazebo** for simulation
-- **Node.js** and **React** for the web application
-- **Python** for ROS packages and control logic
-- **LIDAR** and **Kinect** sensors (for real-world deployment)
+A **React-based web interface** that allows users to monitor and control the wheelchair remotely.
 
----
+Main features:
 
-## Demo
+- **Connection Component**
+  - Shows robot connection status using **ROS WebSocket**
 
-### **Live Demo**
+- **Teleoperation Component**
+  - **Virtual joystick** to manually control the wheelchair
 
-For a live demo of the **Self-Driving Wheelchair** system:  
-[Watch on LinkedIn](https://www.linkedin.com/posts/yousif-adel-a601641b1_apexdriveinnovators-ros-selfdrivingwheelchair-activity-7219724350126514176-LP5P?utm_source=share&utm_medium=member_desktop&rcm=ACoAADFSougBbplLvCFvoq2oVcM3uoEe_eK2zig)
+- **Robot State Component**
+  - Displays real-time robot data such as:
+    - Position
+    - Velocity
+    - Orientation
 
-## Contributing
+- **Map Component**
+  - Displays the generated map
+  - Allows users to **set navigation goals**
 
-Feel free to contribute by:
-
-- **Reporting bugs**
-- **Submitting feature requests**
-- **Improving documentation**
-- **Creating pull requests for improvements**
-
----
-
-## Acknowledgements
-
-This project was part of my **graduation project** as a team member. We thank everyone who supported us in completing this project, including faculty members and competition organizers.
-
-## I would like to thank The engineer **Eng. Hesham Gamal** for his constant support for us throughout the year
+- **Login System**
+  - Secure access to the control interface
 
 ---
 
-## 🔗 Related Projects
+## 3️⃣ Simulation Environment (Gazebo)
 
-- [🦽 Autonomous Mobile Robot (Simulation)](https://github.com/YousifAdel170/Autonomous-Mobile-Robot)
+The wheelchair was first tested in **Gazebo simulation** before deployment in the real world.
+
+Simulation allowed us to:
+
+- Test **navigation algorithms**
+- Verify **SLAM performance**
+- Simulate **dynamic obstacles**
+- Tune **MoveBase parameters**
 
 ---
 
-## License
+# 🖼️ Screenshots
 
-## This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+## URDF Robot Model
+
+![URDF](./screenshots/urdf.jpg)
+
+## Environment Mapping
+
+![Mapping](./screenshots/mapping.jpg)
+
+## Autonomous Path Planning
+
+![Path Planning](./screenshots/path-planning-navigation.jpg)
+
+## React Web App – Setting Navigation Goal
+
+![Set Goal](./screenshots/setting-goal-map-website.jpg)
+
+## Virtual Joystick Teleoperation
+
+![Virtual Joystick](./screenshots/virtual-joystick.jpg)
+
+## Web Application Login Page
+
+![Login](./screenshots/login.jpg)
+
+## Dynamic Obstacle Avoidance
+
+![Obstacle Avoidance](./screenshots/avoid-dynamic-obstacles.jpg)
 
 ---
 
-## 🙋‍♂️ Author
+# ⚙️ Technologies Used
 
-**Yousif Adel** – [LinkedIn](https://www.linkedin.com/in/yousif-adel-a601641b1/)
+### Robotics
+
+- **ROS Noetic**
+- **Gazebo**
+- **RViz**
+- **SLAM**
+- **MoveBase**
+- **A\* Global Planner**
+- **DWA Local Planner**
+- **URDF / Xacro**
+
+### Web Application
+
+- **React.js**
+- **Node.js**
+- **ROSBridge / WebSocket**
+- **JavaScript**
+- **HTML5**
+- **CSS3**
+
+### Programming Languages
+
+- **Python**
+- **JavaScript**
+
+---
+
+# 🎥 Demo
+
+Watch the **live demonstration of the Self-Driving Wheelchair**:
+
+🔗  
+https://www.linkedin.com/posts/youssef-adel-a601641b1_apexdriveinnovators-ros-selfdrivingwheelchair-activity-7219724350126514176-cSIV?utm_source=share&utm_medium=member_desktop&rcm=ACoAADFSougBbplLvCFvoq2oVcM3uoEe_eK2zig
+
+---
+
+# 🙏 Acknowledgements
+
+This project was completed as part of our **graduation project**.
+
+Special thanks to:
+
+**Eng. Hesham Gamal**  
+for his continuous guidance and support throughout the project.
+
+We also thank our faculty members and competition organizers for their valuable support.
+
+---
+
+# 🔗 Related Projects
+
+- 🤖 Autonomous Mobile Robot (Simulation)  
+  https://github.com/YoussefAdel170/Autonomous-Mobile-Robot
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.  
+See the [LICENSE](./LICENSE) file for details.
+
+---
+
+# 👨‍💻 Author
+
+**Youssef Adel**
+
+🔗 LinkedIn  
+https://www.linkedin.com/in/youssef-adel-a601641b1/
