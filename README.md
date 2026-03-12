@@ -96,9 +96,9 @@ Simulation allowed us to:
 
 ![Mapping](./screenshots/mapping.jpg)
 
-## Autonomous Path Planning
+## Web Application Login Page
 
-![Path Planning](./screenshots/path-planning-navigation.jpg)
+![Login](./screenshots/login.jpg)
 
 ## React Web App – Setting Navigation Goal
 
@@ -108,9 +108,9 @@ Simulation allowed us to:
 
 ![Virtual Joystick](./screenshots/virtual-joystick.jpg)
 
-## Web Application Login Page
+## Autonomous Path Planning
 
-![Login](./screenshots/login.jpg)
+![Path Planning](./screenshots/path-planning-navigation.jpg)
 
 ## Dynamic Obstacle Avoidance
 
