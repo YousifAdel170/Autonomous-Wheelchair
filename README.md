@@ -186,5 +186,4 @@ See the [LICENSE](./LICENSE) file for details.
 
 **Youssef Adel**
 
-🔗 LinkedIn  
-https://www.linkedin.com/in/youssef-adel-a601641b1/
+🔗 [LinkedIn](https://www.linkedin.com/in/youssef-adel-a601641b1/)
