@@ -151,8 +151,7 @@ Simulation allowed us to:
 
 Watch the **live demonstration of the Self-Driving Wheelchair**:
 
-🔗  
-https://www.linkedin.com/posts/youssef-adel-a601641b1_apexdriveinnovators-ros-selfdrivingwheelchair-activity-7219724350126514176-cSIV?utm_source=share&utm_medium=member_desktop&rcm=ACoAADFSougBbplLvCFvoq2oVcM3uoEe_eK2zig
+[🔗Watch Demo](https://www.linkedin.com/posts/youssef-adel-a601641b1_apexdriveinnovators-ros-selfdrivingwheelchair-activity-7219724350126514176-cSIV?utm_source=share&utm_medium=member_desktop&rcm=ACoAADFSougBbplLvCFvoq2oVcM3uoEe_eK2zig)
 
 ---
 
