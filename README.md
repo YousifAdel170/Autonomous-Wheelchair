@@ -90,7 +90,7 @@ Simulation allowed us to:
 
 ## URDF Robot Model
 
-![URDF](./screenshots/urdf.jpg)
+![URDF](./screenshots/URDF.jpg)
 
 ## Environment Mapping
 
